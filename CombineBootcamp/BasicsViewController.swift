@@ -12,7 +12,22 @@ class BasicsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        publisherAndSubscriber()
+//        publisherAndSubscriber()
+        
+        sinkMethod()
+    }
+    
+    func sinkMethod() {
+        let notification = Notification.Name("MyNotification")
+        let publisher = NotificationCenter.default.publisher(for: notification)
+        
+        let subscription = publisher.sink { _ in
+            print("Notification Received")
+        }
+        NotificationCenter.default.post(name: notification, object: nil)
+        
+        subscription.cancel()
+        
     }
 
     func publisherAndSubscriber() {
