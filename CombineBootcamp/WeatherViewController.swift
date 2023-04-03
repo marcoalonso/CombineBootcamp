@@ -6,24 +6,33 @@
 //
 
 import UIKit
+import Combine
 
 class WeatherViewController: UIViewController {
-
+    
+    private var webservice: Webservice = Webservice()
+    private var cancellable: AnyCancellable?
+    
+    @IBOutlet weak var temperatureLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    
+        self.cancellable = self.webservice.fetchWeather(city: "Morelia")
+            .catch { _ in
+                Just(Main.placeholder )
+            }
+            .map { weather in
+                if let temp = weather.temp {
+                    return "\(temp) °C"
+                } else {
+                    return "Error getting weather"
+                }
+            }.assign(to: \.text, on: self.temperatureLabel)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

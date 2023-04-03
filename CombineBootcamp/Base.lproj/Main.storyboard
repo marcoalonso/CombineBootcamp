@@ -123,12 +123,12 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciudad" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EGw-8Z-iqO">
-                                        <rect key="frame" x="0.0" y="290" width="313" height="40"/>
+                                        <rect key="frame" x="0.0" y="290" width="313" height="199"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfl-kb-ixv">
-                                        <rect key="frame" x="0.0" y="360" width="313" height="369"/>
+                                        <rect key="frame" x="0.0" y="519" width="313" height="210"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -143,6 +143,9 @@
                             <constraint firstItem="hcB-VD-Z73" firstAttribute="trailing" secondItem="B3p-cR-Ykl" secondAttribute="trailing" constant="40" id="qKv-r8-V0A"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="temperatureLabel" destination="yug-je-y0o" id="cbF-jI-jEJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hiu-3b-W5w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
